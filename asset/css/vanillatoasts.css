@@ -1,0 +1,125 @@
+#vanillatoasts-container {
+  position: fixed;
+  width: 320px;
+  font-family: 'Helvetica';
+  pointer-events: none;
+}
+.toasts-top-right{
+  top: 0;
+  right: 0;
+}
+.toasts-top-left{
+  left:0;
+  top:0;
+}
+.toasts-bottom-left{
+  left: 0;
+  bottom:0;
+}
+.toasts-bottom-right{
+  bottom:0;
+  right: 0;
+}
+.toasts-top-center{
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.toasts-bottom-center{
+  bottom:0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.vanillatoasts-toast {
+  position: relative;
+  padding: 20px 17px;
+  margin: 20px;
+  border-radius: 10px;
+  background: #F5F5F5;
+  cursor: pointer;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  animation-duration:  .3s;
+  animation-name: VanillaToasts;
+  animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  pointer-events: all;
+}
+
+.vanillatoasts-fadeOut {
+  animation-name: VanillaToastsFadeOut;
+  animation-duration: .3s;
+  animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  animation-fill-mode: forwards;
+}
+
+#vanillatoasts-container p,
+#vanillatoasts-container h4 {
+  margin: 3px 0!important;
+}
+
+.vanillatoasts-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.vanillatoasts-text {
+  font-size: 14px;
+  color: #777;
+}
+
+.vanillatoasts-icon {
+  position: absolute;
+  top: 5px;
+  left: -40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  background: #FFF;
+}
+
+.vanillatoasts-toast a, .vanillatoasts-toast a:hover {
+  color: #549EDB !important;
+  text-decoration: none !important;
+}
+
+/** toast types */
+.vanillatoasts-success {
+  border-bottom: 2px solid #51C625;
+}
+
+.vanillatoasts-warning {
+  border-bottom: 2px solid #DB9215;
+}
+
+.vanillatoasts-error {
+  border-bottom: 2px solid #DB2B1D;
+}
+
+.vanillatoasts-info {
+  border-bottom: 2px solid #27ABDB;
+}
+
+@keyframes VanillaToasts {
+  from {
+    transform: translate3d(400px, 0, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes VanillaToastsFadeOut {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(400px, 0, 0);
+    opacity: 0;
+  }
+}
