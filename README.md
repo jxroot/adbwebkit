@@ -1,3 +1,4 @@
+
 ﻿
 <h3 align="center"><img src="https://s19.picofile.com/file/8439685950/favicon.png" alt="logo" height="250px"></h3>
 <p align="center">
@@ -231,9 +232,8 @@ php -S 127.0.0.1:8000
 <li>Add Backup and Restore Tab</li>
 </ul>
 <h2 id="contact">📧 Contact</h2>
-<ul>
-<li>Telegram : <a href="https://t.me/sectoolfa">Telegram</a></li>
-<li>YouTube : <a href="https://www.youtube.com/channel/UC0-QcOXgzRgSfcE3zerwu9w/?sub_confirmation=1&amp;e=ATNtNykw1gT1odu1l5Bn6d5iywA8T_3RKqX5zWP80MurbtagYC2-SPjNnDX7ElDkmqbxRQnSuo9PumnNyR9vd2U&amp;s=1">Youtube</a></li>
-<li>Instagram: <a href="https://www.instagram.com/sectoolfa/">Instagram</a></li>
-</ul>
+<p align="center">
+<a href="https://t.me/sectoolfa"><img title="Telegram" src="https://img.shields.io/badge/Telegram-black?style=for-the-badge&logo=Telegram"></a>
+<a href="https://www.youtube.com/channel/UC0-QcOXgzRgSfcE3zerwu9w/?sub_confirmation=1"><img title="Youtube" src="https://img.shields.io/badge/Youtube-red?style=for-the-badge&logo=Youtube"></a>
+<a href="https://www.instagram.com/sectoolfa"><img title="Instagram" src="https://img.shields.io/badge/Instagram-white?style=for-the-badge&logo=Instagram"></a>
 
