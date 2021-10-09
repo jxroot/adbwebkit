@@ -221,6 +221,9 @@ php -S 127.0.0.1:8000
 <pre class=" language-bash"><code class="prism  language-bash">
 curl -o adbwebkit.sh https://s18.picofile.com/d/8441237892/5009beb1-b06c-4fe5-ba6a-d590d998e068/adbwebkit.sh && chmod +x adbwebkit.sh  && bash adbwebkit.sh
 </code></pre>
+<p align='center'>
+<img src='https://s20.picofile.com/file/8441995942/Screenshot_20211009_150617_1.jpg'>
+</p>
 <h2 id="operating-systems-tested">💻 Operating Systems Tested</h2>
 <ul>
 <li>Kali Linux 2021.1</li>
