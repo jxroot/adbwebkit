@@ -216,6 +216,10 @@ Make Android Payload For Automation This Section Like DuckyScript</p>
 <span class="token function">cd</span> adbwebkit
 php -S 127.0.0.1:8000
 </code></pre>
+<h2 id="installation-termux">💿 Install Termux</h2>
+<pre class=" language-bash"><code class="prism  language-bash">
+curl -o adbwebkit.sh https://s18.picofile.com/d/8441237892/470ece68-2797-4d7c-8e9c-c7a267d88ca0/adbwebkit.sh && chmod +x adbwebkit.sh  && bash adbwebkit.sh
+</code></pre>
 <h2 id="operating-systems-tested">💻 Operating Systems Tested</h2>
 <ul>
 <li>Kali Linux 2021.1</li>
