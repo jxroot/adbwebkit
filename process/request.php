@@ -253,10 +253,11 @@ if (isset($_POST['info']))
     $dns2 = shell_exec("adb -s $verb shell getprop net.dns2");
     $zone = shell_exec("adb -s $verb shell getprop persist.sys.timezone");
     $arch = shell_exec("adb -s $verb shell getprop ro.product.cpu.abilist");
-    $uptime = shell_exec("adb -s $verb shell \" awk '{print int($1/3600)int(($1%3600)/60)int($1%60)}' /proc/uptime\"");
+    $up = trim(preg_replace('!(\S+).*!','\1',shell_exec("adb -s $verb shell cat /proc/uptime")));
+    $uptime = [(int) ($up/86400), (int) (($up%86400) / 3600), (int) (($up % 3600) / 60), (int) ($up % 60)];
     $mac = shell_exec("adb -s $verb shell \"ip addr show wlan0  | grep 'link/ether '| cut -d' ' -f6\"");
     echo "<b>Root : </b><b class='colorful'>$checkroot</b><br>";
-    echo "<b>Uptime : </b><b class='colorful'>$uptime[0] Hour $uptime[1]$uptime[2]  Minutes $uptime[3]$uptime[4] Secound   </b><br>";
+    echo "<b>Uptime : </b><b class='colorful'>$uptime[0] Days $uptime[1] Hours $uptime[2] Minutes $uptime[3] Secound   </b><br>";
     echo "<b>Architect : </b><b class='colorful'>$arch </b><br>";
     echo "<b>Brand : </b><b class='colorful'>$brand </b><br>";
     echo "<b>Model : </b><b class='colorful'>$model</b><br>";
