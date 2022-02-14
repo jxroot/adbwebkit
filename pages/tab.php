@@ -1,3 +1,6 @@
+<script>
+    document.firstElementChild.style.zoom = 0.85;
+</script>
 <div class="row">
     <div class="col-md-3">
         <!-- Tabs nav -->
