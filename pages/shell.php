@@ -14,3 +14,21 @@
                 <button type="button" class="btn btn-secondary btn-md btn-block" id="run-shell">RUN</button>
             </div>
         </div>
+            <script>
+            $(document).ready(function() {
+                var url = window.location.hash
+                var clear = url.split("#")
+                $("#v-pills-" + clear[1] + "-tab").click()
+
+                $("a").click(function() {
+                    var href = $(this).attr('href');
+                    var hash = href.split('-')
+                    window.location.hash = hash[2]
+
+
+
+
+
+                })
+            })
+        </script>
