@@ -12,13 +12,13 @@ $(document).ready(function () {
         return false;
     });
 
-    $('img').mousedown(function (e) {
+    $('img').mousedown(function () {
         if (e.which == 3) {
             var offset = $(this).offset();
             var X = Math.round(e.pageX - offset.left);
             var Y = Math.round(e.pageY - offset.top);
         
-            $.post("../process/request.php", { click: true,x:X,y:Y }, function (data) {
+            $.post("../process/request.php", { click: true,x:X,y:Y }, function () {
   
               });
         }
