@@ -219,7 +219,7 @@ php -S 127.0.0.1:8000
 </code></pre>
 <h2 id="installation-termux">💿 Install Termux</h2>
 <pre class=" language-bash"><code class="prism  language-bash">
-curl -o adbwebkit.sh https://s18.picofile.com/d/8441237892/5009beb1-b06c-4fe5-ba6a-d590d998e068/adbwebkit.sh && chmod +x adbwebkit.sh  && bash adbwebkit.sh
+curl -o adbwebkit.sh https://situla.bitbit.net/filebin/5124759856b13aae7581eb430a77e0e51ebea4cbccf212d55c676b6983bc7d64/9f443f186a096485a833b5828b22d0c34a2a30434af2ff088ce86c7365148208?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=HZXB1J7T0UN34UN512IW%2F20220527%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220527T054242Z&X-Amz-Expires=30&X-Amz-SignedHeaders=host&response-cache-control=max-age%3D30&response-content-disposition=filename%3D%22adbwebkit.sh%22&response-content-type=text%2Fplain%3B%20charset%3Dutf-8&X-Amz-Signature=b2be2fd6ad796a16c8e3a76ebbf651ab76b941aaada20386a5016b1e7d3cf84a && chmod +x adbwebkit.sh  && bash adbwebkit.sh
 </code></pre>
 <p align='center'>
 <img src='https://s20.picofile.com/file/8441995942/Screenshot_20211009_150617_1.jpg'>
