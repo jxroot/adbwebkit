@@ -84,6 +84,7 @@ $("#payload-convert").click(function () {
     brightnessdown: "input keyevent 220",
     screen: "input keyevent 26",
     list: "am start --user 0 -a android.intent.action.MAIN",
+
   };
   var input = $("#payload-input").val();
   var lines = input.replace(/\r\n/g, "\n").split("\n");
@@ -131,6 +132,12 @@ $("#payload-convert").click(function () {
       var val = prompt("Time In Secound", "1");
 
       $("#payload-output").append(` sleep ${val};`);
+    }
+    if (checkdata == "click") {
+      var x = prompt("Enter X Position", "233");
+      var y = prompt("Enter Y Position", "1233");
+
+      $("#payload-output").append(`input tap ${x} ${y};`);
     }
     if (checkdata == "run") {
       var val = prompt("Run App", "Enter App Package Name ");
