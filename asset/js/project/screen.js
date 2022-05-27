@@ -23,3 +23,10 @@ $("#screenshot").click(function () {
     $("#screenshot-out").css("display", "block");
   });
 });
+
+$("#setposimg").click(function () {
+  var url = $("#screenshot-out").attr("src");
+  window.open(`pages/getpos.php#${url}`, "", "width=500,height=300");
+
+})
+
