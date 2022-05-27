@@ -1,4 +1,5 @@
 
+
 ﻿
 <h3 align="center"><img src="https://s19.picofile.com/file/8439685950/favicon.png" alt="logo" height="250px"></h3>
 <p align="center">
@@ -50,6 +51,22 @@
 </ul>
 </li>
 </ul>
+<h2>👊 Update Log</h2>
+<ul>
+<li>add live click  option in screen tab  </li>
+<p>use with left mouse click</p>
+
+![enter image description here](https://fizoofood.com/realclick.gif)
+
+<li>add     get  position item in screen  </li>
+<li>add     click command  in payload  tab</li>
+<p>use with right mouse click</p>
+
+![enter image description here](https://fizoofood.com/realpos.gif)
+<p>use this items togther for testing and automation </p>
+
+</ul>
+
 <h2 id="connection">🔍 Connection</h2>
 
 ![enter image description here](https://s18.picofile.com/file/8439778284/ezgif_com_gif_maker_9_.gif)
@@ -77,6 +94,7 @@
 <ul>
 <li>Take Screen Shot</li>
 <li>Record Screen</li>
+
 </ul>
 <h2 id="phone">📱 Phone</h2>
 
