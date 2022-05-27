@@ -8,11 +8,11 @@ $(document).ready(function () {
         var Y = Math.round(e.pageY - offset.top);
         alert('X: ' + X + ', Y: ' +Y);
     });
-    $('img').bind("contextmenu", function (e) {
+    $('img').bind("contextmenu", function () {
         return false;
     });
 
-    $('img').mousedown(function () {
+    $('img').mousedown(function (e) {
         if (e.which == 3) {
             var offset = $(this).offset();
             var X = Math.round(e.pageX - offset.left);
