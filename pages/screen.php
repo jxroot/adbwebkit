@@ -4,6 +4,7 @@
     <hr>
     <button type="button" class="btn btn-primary btn-lg but" id="screenshot">ScreenShot</button>
     <button type="button" class="btn btn-primary btn-lg but" id="recoredscreen">RecoredScreen</button>
+    <button type="button" class="btn btn-primary btn-lg but" id="setposimg" style="width:100%">GetPosition</button>
     <img src="" class="img-fluid" data-action="zoom" id="screenshot-out">
     <img src="asset/img/1.gif" class="img-fluid" style="display:none" id="loading-screen">
     <video controls id="recoredscreen-out" autoplay class="embed-responsive-item">
