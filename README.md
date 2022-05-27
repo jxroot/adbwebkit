@@ -54,13 +54,13 @@
 <h2>👊 Update Log</h2>
 <ul>
 <li>add live click  option in screen tab  </li>
-<p>use with left mouse click</p>
+<p>use with right mouse click</p>
 
 ![enter image description here](https://fizoofood.com/realclick.gif)
 
 <li>add     get  position item in screen  </li>
 <li>add     click command  in payload  tab</li>
-<p>use with right mouse click</p>
+<p>use with left mouse click</p>
 
 ![enter image description here](https://fizoofood.com/realpos.gif)
 <p>use this items togther for testing and automation </p>
