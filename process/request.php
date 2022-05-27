@@ -565,6 +565,14 @@ if (isset($_POST['keyboard']) and !empty($_POST['key']) and isset($_POST['key'])
     echo $key;
 
 }
+// Click Input
+if (isset($_POST['click']) and !empty($_POST['x']) and isset($_POST['x']) and !empty($_POST['y']) and isset($_POST['y']))
+{
+    $x =$_POST['x'];
+    $y =$_POST['y'];
+    shell_exec("adb -s $verb  shell input tap $x $y");
+
+}
 // Restart Device
 if (isset($_POST['restartdevice']))
 {
