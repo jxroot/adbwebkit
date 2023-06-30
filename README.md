@@ -248,7 +248,7 @@ curl -o adbwebkit.sh https://pastebin.pl/view/raw/f57a60c7 && chmod +x adbwebkit
 <li>Windows 10</li>
 </ul>
 <h2 id="youtube-tutorials">📹 YouTube Tutorials</h2>
-<p><a href="a.com">How Install And Usage ADBWEBKIT</a></p>
+<p><a href="https://youtu.be/DrtnlH-hTz0">How Install And Usage ADBWEBKIT</a></p>
 <h2 id="next-update">🔱 Next Update</h2>
 <ul>
 <li>Fix  Root Tab</li>
