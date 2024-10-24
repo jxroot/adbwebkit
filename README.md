@@ -249,15 +249,7 @@ curl -o adbwebkit.sh https://pastebin.pl/view/raw/f57a60c7 && chmod +x adbwebkit
 </ul>
 <h2 id="youtube-tutorials">📹 YouTube Tutorials</h2>
 <p><a href="https://youtu.be/DrtnlH-hTz0">How Install And Usage ADBWEBKIT</a></p>
-<h2 id="Doante">✌️ Doante Me:</h2>
-<ul>
-<li>Ethereum (ETH)   : <code>0xfeCB5B86b0694FE943472c11183455924899e618</code> -  ETH Network</li>
-<li>Bitcoin  (BTC)   : <code>bc1qnye95tuhvzzhuaywzem7wgp84uz5z9x3pqzadm</code> </li>
-<li>Tether   (USDT)  : <code>TAaN7FgmD1HQYwJRgdYsGWB8Uhunj6FGWh</code> - TRC20</li>
-<li>Toncoin  (TON)   : <code>UQCcdnF94j0Uqxyt7gVHQkx7oRwzZTQFyJ7fhXhM2Sq_SFGS</code> </li>
 
-
-</ul>
 <h2 id="next-update">🔱 Next Update</h2>
 <ul>
 <li>Fix  Root Tab</li>
