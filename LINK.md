@@ -38,6 +38,23 @@ URL or scan the QR. When the target opens it:
 `TUNNEL=0` (default) keeps it local for testing; set `ADBWEBKIT_URL` yourself if
 you front it with nginx/tailscale instead of cloudflared.
 
+### The tunnel is supervised, the agent is not
+
+A quick tunnel (no Cloudflare account) has **no uptime guarantee**: Cloudflare
+drops the name at will (`Tunnel not found`), the hostname then stops resolving
+(`NXDOMAIN`) and never comes back. With `TUNNEL=1`, `serve.sh` therefore does not
+just start — it **supervises**. It probes its own public URL on a timer and, when
+the probe fails, tears the tunnel down and opens a fresh one on a new URL. The
+console heals itself; you see `health: n/3 fail` then `tunnel dead -- restarting`.
+
+What the supervisor cannot fix is an agent already installed and **baked** with
+the old address — it keeps dialing a name that is gone. So after a URL change the
+rule is one line: **the URL in the Link tab must be re-armed**. Generate a fresh
+link and send it; the `endpoint` on any older link is dead.
+
+Knobs (seconds / count): `ADBWEBKIT_HEALTH_INTERVAL` (20),
+`ADBWEBKIT_HEALTH_FAILS` (3).
+
 ## The three ways in
 
 Tried in order, each a superset of the last, so a visitor with no ADB knowledge
@@ -55,7 +72,7 @@ still works and can upgrade to full ADB with one tap:
 
 ```
 router.php            routes /s/<sid>/<verb> to the gate; / to the UI
-serve.sh              starts the console (+ optional cloudflared tunnel)
+serve.sh              console + supervised cloudflared tunnel (TUNNEL=1)
 link/config.php       paths, env, atomic JSON, touch log
 link/gate.php         view, enroll, state, apk, pair, attach, agent protocol
 link/adbctrl.php      adb wrapper + connect lock + vendor keys
