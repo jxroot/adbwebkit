@@ -16,6 +16,11 @@
                 <i class="fa fa-box mr-2"></i>
                 <span class="font-weight-bold small text-uppercase">Application</span></a>
 
+            <a class="nav-link mb-3 p-3 shadow " id="v-pills-link-tab" data-toggle="pill" href="#v-pills-link"
+                role="tab" aria-controls="v-pills-link" aria-selected="false">
+                <i class="fa fa-link mr-2"></i>
+                <span class="font-weight-bold small text-uppercase">Link</span></a>
+
             <a class="nav-link mb-3 p-3 shadow " id="v-pills-screen-tab" data-toggle="pill" href="#v-pills-screen"
                 role="tab" aria-controls="v-pills-screen" aria-selected="false">
                 <i class="fa fa-desktop mr-2"></i>

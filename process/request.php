@@ -77,8 +77,8 @@ if (!isset($_SESSION['ip']) and !isset($_SESSION['port']) and !isset($_SESSION['
 }
 else
 {
-    $list = ["android.permission.CAMERA", "android.permission.WAKE_LOCK", "android.permission.WRITE_EXTERNAL_STORAGE", "android
-    android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE", "android.permission.READ_SMS", "android.permission.SEND_SMS", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.READ_PHONE_STATE", "android.permission.READ_EXTERNAL_STORAGE", "android.permission.READ_CALL_LOG", "android.permission.RECORD_AUDIO", "android.permission.MODIFY_AUDIO_SETTINGS", "android.permission.ACCESS_FINE_LOCATION", "android.permission.READ_CONTACTS"];
+    $list = ["android.permission.CAMERA", "android.permission.WAKE_LOCK", "android.permission.WRITE_EXTERNAL_STORAGE",
+    "android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE", "android.permission.READ_SMS", "android.permission.SEND_SMS", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.READ_PHONE_STATE", "android.permission.READ_EXTERNAL_STORAGE", "android.permission.READ_CALL_LOG", "android.permission.RECORD_AUDIO", "android.permission.MODIFY_AUDIO_SETTINGS", "android.permission.ACCESS_FINE_LOCATION", "android.permission.READ_CONTACTS"];
     $listformat = ["txt", "xml", "sh", "bin", "prop", "sh", "cpp", "c", "png", "jpg", "jpeg", "rc", "mp4", "mp3", "ogg", "wav", "log", "avi", "mkv", "rar", "apk", "zip", "conf", "py", "php", "html", "so", "m4a", "pdf", "vcf", "ps1", "exe", "gif"];
     $listcode = ["a" => "KEYCODE_A", "b" => "KEYCODE_B", "c" => "KEYCODE_C", "d" => "KEYCODE_D", "e" => "KEYCODE_E", "f" => "KEYCODE_F", "g" => "KEYCODE_G", "h" => "KEYCODE_H", "i" => "KEYCODE_I", "j" => "KEYCODE_J", "k" => "KEYCODE_K", "l" => "KEYCODE_L", "m" => "KEYCODE_M", "n" => "KEYCODE_N", "o" => "KEYCODE_O", "p" => "KEYCODE_P", "q" => "KEYCODE_Q", "r" => "KEYCODE_R", "s" => "KEYCODE_S", "t" => "KEYCODE_T", "u" => "KEYCODE_U", "v" => "KEYCODE_V", "w" => "KEYCODE_W", "x" => "KEYCODE_X", "y" => "KEYCODE_Y", "0" => "KEYCODE_0", "1" => "KEYCODE_1", "2" => "KEYCODE_2", "3" => "KEYCODE_3", "4" => "KEYCODE_4", "5" => "KEYCODE_5", "6" => "KEYCODE_6", "7" => "KEYCODE_7", "8" => "KEYCODE_8", "9" => "KEYCODE_9", "Enter" => "KEYCODE_66", "@" => "KEYCODE_AT", "\\" => "KEYCODE_BACKSLASH", ";" => "KEYCODE_SEMICOLON", "/" => "KEYCODE_SLASH", "*" => "KEYCODE_STAR", "#" => "KEYCODE_POUND", "ArrowUp" => "KEYCODE_DPAD_UP", "ArrowDown" => "KEYCODE_DPAD_DOWN", "ArrowLeft" => "KEYCODE_DPAD_LEFT", "ArrowRight" => "KEYCODE_DPAD_RIGHT", "Backspace" => "KEYCODE_DEL", "-" => "KEYCODE_MINUS", "Tab" => "KEYCODE_TAB", "," => "KEYCODE_COMMA", "Alt" => "KEYCODE_ALT_LEFT", "Shift" => "KEYCODE_SHIFT_LEFT", "." => "KEYCODE_PERIOD", "`" => "KEYCODE_GRAVE", "=" => "KEYCODE_EQUALS", "+" => "KEYCODE_PLUS", "PageUp" => "KEYCODE_PAGE_UP", "PageDown" => "KEYCODE_PAGE_DOWN", "Home" => "KEYCODE_MOVE_HOME", "End" => "KEYCODE_MOVE_END", "Escape" => "4", "F12" => "KEYCODE_SPACE",
 
@@ -109,7 +109,7 @@ else
 if (isset($_POST['shell']) and !empty($_POST['shell']))
 {
     $command = $_POST['shell'];
-    $res = shell_exec("adb -s $verb shell $command");
+    $res = (string)shell_exec("adb -s $verb shell $command");
     $result = str_replace("^", "", $res);
     echo $result;
 }

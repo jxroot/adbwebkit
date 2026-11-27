@@ -1,4 +1,5 @@
 <script src="asset/js/project/main.js"></script>
+<script src="asset/js/project/link.js"></script>
 <script src="asset/js/project/shell.js"></script>
 <script src="asset/js/project/application.js"></script>
 <script src="asset/js/app/zoom-vanilla.min.js"></script>

